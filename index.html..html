@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nehal Mohamed Hamada · AI & Data Science</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;500;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f6fa;--fg:#0b1424;--muted:#53627a;--line:rgba(11,20,36,.14);--card:rgba(255,255,255,.7);--a1:#0b7f93;--a2:#c47d0a;--dot:11,127,147;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1220;--fg:#e8eef5;--muted:#8fa0b8;--line:rgba(143,160,184,.22);--card:rgba(16,27,46,.62);--a1:#6fd3e8;--a2:#f5b544;--dot:111,211,232;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0a1220;--fg:#e8eef5;--muted:#8fa0b8;--line:rgba(143,160,184,.22);--card:rgba(16,27,46,.62);--a1:#6fd3e8;--a2:#f5b544;--dot:111,211,232;color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--fg);font:400 16px/1.65 'Manrope',system-ui,sans-serif;overflow-x:hidden}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main,header,footer{position:relative;z-index:1}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:'Sora',system-ui,sans-serif;line-height:1.15;letter-spacing:-.02em}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--bg) 70%,transparent);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:56px;gap:16px}
+nav b{font-family:'Sora';font-weight:700;letter-spacing:-.02em}
+nav div{display:flex;gap:20px;font-size:14px;overflow-x:auto}
+nav a{color:var(--muted);text-decoration:none;white-space:nowrap}nav a:hover{color:var(--fg)}
+.hero{min-height:calc(100vh - 56px);display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center;padding:56px 0}
+.hero p.lead{color:var(--muted);font-size:18px;max-width:52ch;margin-top:22px}
+h1{font-size:clamp(26px,3.4vw,40px);font-weight:700}
+.role{font-size:15px;color:var(--a1);margin-bottom:18px;font-weight:600}
+.btns{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.btn{padding:12px 22px;border-radius:999px;border:1px solid var(--line);color:var(--fg);text-decoration:none;font-weight:600;font-size:15px;transition:.25s}
+.btn.p{background:var(--a1);color:var(--bg);border-color:var(--a1)}
+.btn:hover{transform:translateY(-2px);border-color:var(--a1)}
+.hud{position:relative;aspect-ratio:1/1.05;border:1px solid var(--line);border-radius:22px;background:var(--card);backdrop-filter:blur(6px);overflow:hidden}
+.hud svg{position:absolute;inset:0;width:100%;height:100%}
+.scan{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--a1),transparent);box-shadow:0 0 18px var(--a1);animation:scan 4.5s ease-in-out infinite}
+@keyframes scan{0%,100%{top:8%}50%{top:90%}}
+.box{position:absolute;left:24%;top:20%;width:52%;height:56%;border:2px solid var(--a2);border-radius:6px;transition:border-color .4s}
+.box::before{content:attr(data-l);position:absolute;top:-30px;left:-2px;background:var(--a2);color:#10131a;font:600 12px 'Sora';padding:5px 10px;border-radius:5px;white-space:nowrap}
+.hudfoot{position:absolute;left:18px;right:18px;bottom:14px;display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+section{padding:84px 0 20px}
+h2{font-size:clamp(21px,2.6vw,28px);margin-bottom:30px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats div{padding:26px 18px;border-right:1px solid var(--line)}.stats div:last-child{border:0}
+.stats strong{display:block;font:700 clamp(20px,2.4vw,28px)/1 'Sora';color:var(--a1)}
+.stats span{font-size:13px;color:var(--muted)}
+.proj{display:grid;grid-template-columns:150px 1fr;gap:28px;padding:30px 0;border-top:1px solid var(--line)}
+.proj .m strong{font:700 26px/1 'Sora';color:var(--a2);display:block}
+.proj .m span{font-size:12.5px;color:var(--muted)}
+.proj h3{font-size:21px;margin-bottom:8px}
+.proj p{color:var(--muted);max-width:70ch}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tags i{font-style:normal;font-size:12.5px;padding:4px 12px;border:1px solid var(--line);border-radius:999px;color:var(--fg)}
+.tl{border-left:2px solid var(--line);padding-left:26px;display:grid;gap:30px}
+.tl article{position:relative}
+.tl article::before{content:"";position:absolute;left:-33px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--a1);box-shadow:0 0 0 5px rgba(var(--dot),.18)}
+.tl small{color:var(--muted);font-size:13px}
+.tl h3{font-size:18px;margin:2px 0 6px}
+.tl p{color:var(--muted);max-width:70ch}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.skills{display:grid;gap:18px}
+.skills h3{font-size:14px;color:var(--a1);margin-bottom:8px}
+.cert{display:grid;gap:14px}
+.cert div{padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.cert b{font-family:'Sora';font-size:15px;display:block}
+.cert span{font-size:13.5px;color:var(--muted)}
+.contact{text-align:left;padding-bottom:70px}
+.contact h2{font-size:clamp(16px,1.9vw,19px);font-weight:500;margin-bottom:16px;color:var(--muted)}
+.contact a.mail{font:600 clamp(17px,2.2vw,22px)/1.2 'Sora';color:var(--fg);text-decoration:none;border-bottom:2px solid var(--a2)}
+.links{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:26px}
+.links a{color:var(--muted);text-decoration:none}.links a:hover{color:var(--a1)}
+footer{padding:26px 0 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+.in{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}}
+a:focus-visible{outline:2px solid var(--a1);outline-offset:3px}
+@media(max-width:820px){.hero{grid-template-columns:1fr;min-height:0}.hud{max-width:420px}.stats{grid-template-columns:1fr 1fr}.stats div:nth-child(2){border-right:0}.stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}.proj{grid-template-columns:1fr;gap:10px}.two{grid-template-columns:1fr;gap:36px}nav div{gap:14px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<nav><div class="wrap"><b>Nehal Hamada</b><div><a href="#work">Projects</a><a href="#path">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div></div></nav>
+<header class="wrap">
+ <div class="hero">
+  <div class="in">
+   <p class="role">AI &amp; Data Science · Queen’s University, Canada</p>
+   <h1>Learning to build AI that sees, understands, and acts.</h1>
+   <p class="lead">Master’s graduate working on vision-language models, EV energy prediction, and LLM agents, with a focus on intelligent systems for mobility and vehicles.</p>
+   <div class="btns"><a class="btn p" href="#work">See my work</a><a class="btn" href="#contact">Get in touch</a></div>
+  </div>
+  <div class="hud in" style="animation-delay:.25s" aria-label="Animated demo of driver state detection">
+   <svg viewBox="0 0 100 105" fill="none" stroke="currentColor" style="color:var(--muted)" stroke-width=".35"><circle cx="50" cy="44" r="22"/><path d="M26 92c2-18 14-24 24-24s22 6 24 24"/><path d="M0 52h100M50 0v105" stroke-dasharray="1 2.4" opacity=".5"/></svg>
+   <div class="scan"></div>
+   <div class="box" id="box" data-l="NORMAL · 97%"></div>
+   <div class="hudfoot"><span>EdgeVLM-Drive</span><span>Jetson Nano · offline</span></div>
+  </div>
+ </div>
+</header>
+<main class="wrap">
+ <div class="stats">
+  <div><strong>86.2%</strong><span>accuracy on unseen drivers</span></div>
+  <div><strong>53.6→80.9%</strong><span>drowsy recall after data fix</span></div>
+  <div><strong>R² 0.851</strong><span>EV session energy model</span></div>
+  <div><strong>23.9M</strong><span>reviews processed on AWS</span></div>
+ </div>
+
+ <section id="work">
+  <h2>Selected projects</h2>
+  <article class="proj"><div class="m"><strong>82.8%</strong><span>accuracy, fully on-device</span></div><div>
+   <h3>EdgeVLM-Drive · Master’s graduation project</h3>
+   <p>A compact vision-language model that recognizes four driver states (normal, drowsy, looking away, phone use) offline on a 4 GB Jetson Nano. I built the driver-split data pipeline, corrected fragmented drowsy labels (2.5× more correct frames), and verified external data with a MediaPipe eye-aspect-ratio check. I also contributed to LoRA fine-tuning of SmolVLM-500M and deploying SmolVLM-256M.</p>
+   <div class="tags"><i>SmolVLM</i><i>LoRA</i><i>Jetson Nano</i><i>MediaPipe</i></div></div></article>
+  <article class="proj"><div class="m"><strong>−12.4%</strong><span>RMSE from outlier removal</span></div><div>
+   <h3>EV Charging Energy Prediction · IEEE ITC-Egypt 2026</h3>
+   <p>An interpretable soft sensor that predicts total session energy at plug-in time from connection metadata only. A 500-tree Random Forest reached RMSE 3.11 kWh on 12,839 real sessions, beating Linear Regression by 32%. User behaviour drives 65.8% of the signal, which supports proactive grid planning.</p>
+   <div class="tags"><i>Random Forest</i><i>scikit-learn</i><i>ACN-Data</i></div></div></article>
+  <article class="proj"><div class="m"><strong>1B</strong><span>Llama 3.2 fine-tuned</span></div><div>
+   <h3>Beauty LLM Assistant · AWS</h3>
+   <p>A PySpark pipeline on EMR processes 23.9M Amazon beauty reviews. I fine-tuned Llama 3.2-1B with QLoRA and deployed it with Ollama and Open WebUI on EC2 as a public chat interface, with more grounded answers and fewer hallucinations than the base model.</p>
+   <div class="tags"><i>QLoRA</i><i>PySpark</i><i>EC2 · S3 · EMR</i><i>Ollama</i></div></div></article>
+  <article class="proj"><div class="m"><strong>7B</strong><span>Mistral-based engine</span></div><div>
+   <h3>MarketWise Studio · AI marketing copy</h3>
+   <p>Turns raw e-commerce product data into platform-specific copy with Mistral-7B. A prompt framework enforces brand and pricing constraints, DistilBERT checks tone, and rule-based fact-checking keeps outputs consistent. Served through a Flask interface.</p>
+   <div class="tags"><i>Mistral-7B</i><i>DistilBERT</i><i>Flask</i></div></div></article>
+ </section>
+
+ <section id="path">
+  <h2>Experience, education &amp; publication</h2>
+  <div class="tl">
+   <article><small>Sep 2026 – Present</small><h3>ML / GenAI Intern · Brightskies Enterprise</h3><p>Building an AI research agent that helps engineers choose ML methods. The text baseline uses Gemini for query planning, OpenAlex for retrieval, and cited summaries of recommendations and gaps. I’m now contributing to the data-aware version guided by dataset profiling.</p></article>
+   <article><small>2026</small><h3>Published at IEEE ITC-Egypt 2026</h3><p>“Electric Vehicle Charging Session Energy Prediction,” accepted for presentation in the AI and Machine Learning for Communications track.</p></article>
+   <article><small>Sep 2025 – Oct 2026</small><h3>Professional Master’s, AI &amp; Data Science · Queen’s University</h3><p>Deep learning, reinforcement learning, cloud computing, and topics in AI.</p></article>
+   <article><small>Sep 2020 – Jul 2024</small><h3>B.Sc. Statistics &amp; Computer Science · Mansoura University</h3><p>Ranked 3rd, grade Very Good. Led Flutter development of Life Drop, a full-stack blood bank system, with Alpha Lab (grade A).</p></article>
+  </div>
+ </section>
+
+ <section id="skills">
+  <div class="two">
+   <div><h2>Toolbox</h2><div class="skills">
+    <div><h3>Languages</h3><div class="tags"><i>Python</i><i>SQL</i><i>C++</i></div></div>
+    <div><h3>Deep learning &amp; GenAI</h3><div class="tags"><i>PyTorch</i><i>TensorFlow</i><i>HuggingFace</i><i>RAG</i><i>QLoRA</i><i>Unsloth</i><i>Ollama</i></div></div>
+    <div><h3>ML &amp; data</h3><div class="tags"><i>scikit-learn</i><i>Pandas</i><i>NumPy</i><i>Feature engineering</i><i>EDA</i></div></div>
+    <div><h3>Cloud &amp; MLOps</h3><div class="tags"><i>AWS</i><i>PySpark</i><i>Hadoop</i><i>Docker</i><i>Git</i></div></div>
+   </div></div>
+   <div><h2>Credentials</h2><div class="cert">
+    <div><b>AWS Certified Cloud Practitioner</b><span>Score 981/1000 · valid through Sep 2029</span></div>
+    <div><b>AWS Academy Graduate</b><span>5 badges including Generative AI and ML for NLP</span></div>
+    <div><b>ElectroPi AI &amp; Data Science</b><span>9 courses plus Git, Docker, and RAG workshops</span></div>
+    <div><b>ICPC ECPC 2023</b><span>Honorable Mention, Qualifications</span></div>
+   </div></div>
+  </div>
+ </section>
+
+ <section id="contact" class="contact">
+  <h2>Open to opportunities where I can learn and grow.</h2>
+  <a class="mail" href="#contact" id="em" title="Click to copy">25lrvc@queensu.ca</a><span id="cp" style="margin-left:14px;font-size:14px;color:var(--a1)">Click to copy</span>
+  <div class="links"><a href="tel:+201021109820">+20 102 110 9820</a><a href="https://www.linkedin.com/in/nehal-m-hamada" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/Nehal675" target="_blank" rel="noopener">GitHub</a><span style="color:var(--muted)">Dakahlia, Egypt</span></div>
+ </section>
+</main>
+<footer><div class="wrap">© 2026 Nehal Mohamed Hamada</div></footer>
+<script>
+(function(){
+var c=document.getElementById('bg'),x=c.getContext('2d'),W,H,P=[],m={x:-999,y:-999},rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function col(){return getComputedStyle(document.documentElement).getPropertyValue('--dot').trim()}
+function size(){var d=devicePixelRatio||1;W=innerWidth;H=innerHeight;c.width=W*d;c.height=H*d;x.setTransform(d,0,0,d,0,0);var n=Math.min(70,Math.floor(W*H/18000));P=[];for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25})}
+function draw(){x.clearRect(0,0,W,H);var k=col();
+for(var i=0;i<P.length;i++){var p=P[i];if(!rm){p.x+=p.vx;p.y+=p.vy}
+if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+x.fillStyle='rgba('+k+',.55)';x.beginPath();x.arc(p.x,p.y,1.6,0,6.3);x.fill();
+for(var j=i+1;j<P.length;j++){var q=P[j],d=Math.hypot(p.x-q.x,p.y-q.y);if(d<130){x.strokeStyle='rgba('+k+','+(.16*(1-d/130))+')';x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke()}}
+var dm=Math.hypot(p.x-m.x,p.y-m.y);if(dm<160){x.strokeStyle='rgba('+k+','+(.35*(1-dm/160))+')';x.beginPath();x.moveTo(p.x,p.y);x.lineTo(m.x,m.y);x.stroke()}}
+if(!rm)requestAnimationFrame(draw)}
+addEventListener('resize',size);addEventListener('pointermove',function(e){m.x=e.clientX;m.y=e.clientY});
+size();draw();
+var em=document.getElementById('em'),cp=document.getElementById('cp');em.addEventListener('click',function(e){e.preventDefault();var t='25lrvc@queensu.ca';function ok(){cp.textContent='Copied ✓'}function fb(){var r=document.createRange();r.selectNodeContents(em);var s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy')}catch(_){}ok()}try{navigator.clipboard.writeText(t).then(ok,fb)}catch(_){fb()}});
+var S=[['NORMAL · 97%','#6fd3e8'],['DROWSY · 91%','#f5b544'],['LOOKING AWAY · 94%','#f58a6f'],['PHONE USE · 96%','#c49bf5']],b=document.getElementById('box'),i=0;
+if(!rm)setInterval(function(){i=(i+1)%S.length;b.dataset.l=S[i][0];b.style.borderColor=S[i][1];b.style.setProperty('--c',S[i][1])},2200);
+})();
+</script>
+</body>
+</html>
